@@ -1,9 +1,11 @@
-
+import { Login } from "./assets/pages/login"
 function App() {
 
   return (
     <>
-    <h1>Hello World </h1>
+      <Login>
+
+      </Login>
     </>
   )
 }
