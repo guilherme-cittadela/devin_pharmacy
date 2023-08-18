@@ -15,7 +15,9 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^5.14.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-input-mask": "^2.0.4",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -1,11 +1,11 @@
 import { Login } from "./assets/pages/login"
+import { RegisterPharmacy } from "./assets/pages/registerPharmacy"
 function App() {
 
   return (
     <>
-      <Login>
-
-      </Login>
+      <Login></Login>
+      <RegisterPharmacy></RegisterPharmacy>
     </>
   )
 }
