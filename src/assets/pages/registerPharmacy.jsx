@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { FormRegister } from "../components/pharmacy/formRegister.jsx"
-import { FormContainer } from '../components/pharmacy/formStyles.js'; 
+import { FormContainer } from '../global/formStyles.js'; 
 
 function RegisterPharmacy() {
     return ( 
