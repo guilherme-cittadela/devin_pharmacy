@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import { FormRegister } from "../components/pharmacy/formRegister.jsx"
 import { FormContainer } from '../components/pharmacy/formStyles.js'; 
+import { FormMedication } from "../components/medications/formMedication.jsx";
 
-function RegisterPharmacy() {
+function RegisterMedication() {
     return ( 
         <>
         <Box
@@ -13,7 +13,7 @@ function RegisterPharmacy() {
             autoComplete="off"
         >
             <FormContainer>
-                <FormRegister/>
+                <FormMedication/>
             </FormContainer>
         </Box>
 
@@ -21,4 +21,4 @@ function RegisterPharmacy() {
      );
 }
 
-export  {RegisterPharmacy};
+export { RegisterMedication };
