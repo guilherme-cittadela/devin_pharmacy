@@ -69,6 +69,9 @@ function CardMedication({id, name, description, laboratory, dosage, price, type}
             <Chip sx={{m: 1}}label={dosage}/>
             <Chip sx={{m: 1}}label={type}/>
           </Box>
+          <Button onClick={handleClose} size="small">
+            Fechar
+          </Button>
       </Box>
       </Modal>
     </>

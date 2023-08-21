@@ -5,6 +5,8 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import React, { useEffect, useState } from 'react';
 import { CardContainer } from "../components/medications/cardContainer";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 
 function ListMedication() {
@@ -92,50 +94,48 @@ function ListMedication() {
         console.log(filtredMedications)
     },[searchMedication])
 
-    if(length(filtredMedications) === 0) return (
-        <>
-        <Alert severity="warning">
-         <AlertTitle>Warning</AlertTitle>
-            This is a warning alert — <strong>check it out!</strong>
-        </Alert>
-      </>)
     return ( 
         
         <>
         <Paper
-            component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
-            >
+        component="form"
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+        >
             
-            <InputBase
-                onChange={(event) =>{
-                    setSearchMedication(event.target.value)
-                  }}
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Search Google Maps"
-                inputProps={{ 'aria-label': 'search google maps' }}
-            />
-            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                <SearchIcon />
-            </IconButton>
+          <InputBase
+              onChange={(event) =>{
+                  setSearchMedication(event.target.value)
+                }}
+              sx={{ ml: 1, flex: 1 }}
+              placeholder="Search Google Maps"
+              inputProps={{ 'aria-label': 'search google maps' }}
+          />
+          <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+              <SearchIcon />
+          </IconButton>
 
-            </Paper>
+        </Paper>
+        {filtredMedications.length === 0 ? (
+          <Alert severity="info">
+            <AlertTitle>Informação</AlertTitle>
+            Nenhum dado encontrado
+          </Alert>
+        ) : (
             <CardContainer>
-            {filtredMedications.map(({id, name, description, laboratory, dosage, price, type})=>{
-                return(
+                {filtredMedications.map(({ id, name, description, laboratory, dosage, price, type }) => (
                     <CardMedication 
-                    key={id}
-                    id={id}
-                    name={name} 
-                    description={description} 
-                    laboratory={laboratory}
-                    dosage={dosage}
-                    price={price}
-                    type={type}
+                        key={id}
+                        id={id}
+                        name={name} 
+                        description={description} 
+                        laboratory={laboratory}
+                        dosage={dosage}
+                        price={price}
+                        type={type}
                     />
-                    )
-                })}
-                </CardContainer>
+                ))}
+            </CardContainer>
+        )}
         </>
     );
 }
