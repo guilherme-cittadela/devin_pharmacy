@@ -3,6 +3,7 @@ import { Button, TextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 import {Box} from '@mui/material';
 import { validateEmail } from '../../global/functions';
+
 function FormRegister() {
     const initialFormData = {
       companyName: '',
@@ -64,6 +65,7 @@ function FormRegister() {
       }));
       setEmailValid(validateEmail(value));
     }
+    
     const handleZipCodeChange = (event) => {
       const { value } = event.target;
     
