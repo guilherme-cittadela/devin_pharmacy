@@ -11,6 +11,22 @@ function validatePassword(senha){
 function validateLogin(validEmail, validPassword, email, password) {
     return ( validEmail && validPassword) && !!(email && password);
   }
- 
-export { validateEmail, validatePassword, validateLogin };
+
+function saveData(key, data) {
+try {
+    const existingData = localStorage.getItem(key);
+
+    if (existingData) {
+    const dataArray = JSON.parse(existingData);
+    dataArray.push(data);
+    localStorage.setItem(key, JSON.stringify(dataArray));
+    } else {
+    const initialData = [data];
+    localStorage.setItem(key, JSON.stringify(initialData));
+    }
+} catch (error) {
+    console.error("Error saving data to localStorage:", error);
+}
+}
+export { validateEmail, validatePassword, validateLogin, saveData };
 

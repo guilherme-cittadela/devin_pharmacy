@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 import {Box} from '@mui/material';
-import { validateEmail } from '../../global/functions';
+import { validateEmail, saveData } from '../../global/functions';
 
 function FormRegister() {
     const initialFormData = {
@@ -34,7 +34,6 @@ function FormRegister() {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(compareByCnpj(formData.cnpj))
       if (compareByCnpj(formData.cnpj)) {
         setCnpjValid(false)
       } else {
@@ -301,22 +300,7 @@ function FormRegister() {
     </>
   );
 }
-function saveData(key, data) {
-  try {
-    const existingData = localStorage.getItem(key);
 
-    if (existingData) {
-      const dataArray = JSON.parse(existingData);
-      dataArray.push(data);
-      localStorage.setItem(key, JSON.stringify(dataArray));
-    } else {
-      const initialData = [data];
-      localStorage.setItem(key, JSON.stringify(initialData));
-    }
-  } catch (error) {
-    console.error("Error saving data to localStorage:", error);
-  }
-}
 function compareByCnpj(newCnpj) {
   const existingData = localStorage.getItem("pharmacy");
   if (existingData) {

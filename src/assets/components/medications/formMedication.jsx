@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, MenuItem, Box, FormControl } from '@mui/material';
+import { saveData } from '../../global/functions';
 
 function FormMedication() {
-  const initialFormData = {
-    medicationName: '',
-    labName: '',
-    dosage: '',
-    description: '',
-    unitPrice: 0,
-    medType: '',
-  }
-
+  
+  const [reset, setReset] = useState(false);
+  const [defaultValue, setDefaultValue] = useState("common")
+  
   const medicationType = [
     {value: "controlled",
     label: "Medicamento Controlado"},
     {value: "common",
     label: "Medicamento Comum"},
   ]
+  const initialFormData = {
+    medicationName: '',
+    labName: '',
+    dosage: '',
+    description: '',
+    unitPrice: 0,
+    medType: defaultValue,
+  }
   const [formData, setFormData] = useState(initialFormData);
-  const [reset, setReset] = useState(false);
   
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    saveData("medication", formData);
   };
 
   const handleReset = () => {
@@ -35,15 +39,14 @@ function FormMedication() {
       [name]: value,
     }));
   };
-
-  const handleSelectChange = (event)=>{
-    let value = event.target.value
+  const handleSelectChange = (event) => {
+    const value  = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [medType]: value,
+      medType: value,
     }));
-    console.log(formData)
-  }
+  };
+
   useEffect(() => {
     if (formData == initialFormData){
         setReset(!reset)
@@ -52,7 +55,7 @@ function FormMedication() {
 
   return (
     
-       <form >
+       <form onSubmit={handleSubmit}>
         <TextField
           label="Nome"
           type="text"
@@ -100,19 +103,25 @@ function FormMedication() {
             id="outlined-select"
             select
             label="Tipo"
-            defaultValue="Tipo"
+            defaultValue={defaultValue}
             helperText="Selecione o tipo de medicamento"
             required
-            onChange={handleInputChange}
+            name='medType'
+            onChange={handleSelectChange}
           >
             {medicationType.map((option) => (
-            <MenuItem name="medType" key={option.value} value={option.value}>
+            <MenuItem 
+              name="medType" 
+              key={option.value} 
+              value={option.value}
+              >
               {option.label}
+              
             </MenuItem>
           ))}
           </TextField>
         <Box sx={{display: "flex", justifyContent: "space-around"  }}>
-            <Button onSubmit={handleSubmit} type="submit" variant="contained">Cadastrar</Button>
+            <Button  type="submit" variant="contained">Cadastrar</Button>
             <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
         </Box>
 

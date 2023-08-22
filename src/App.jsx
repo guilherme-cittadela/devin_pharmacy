@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <RegisterPharmacy/>
+      <RegisterMedication/>
       <Login/>
     </>
   )
