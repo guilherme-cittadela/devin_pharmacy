@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 import {Box} from '@mui/material';
-import { FormControl } from '@mui/base';
 import { validateEmail } from '../../global/functions';
 function FormRegister() {
     const initialFormData = {
@@ -110,7 +109,7 @@ function FormRegister() {
       cnpjValid? setHelperCNPJ(""): setHelperCNPJ("CNPJ Inválido")
       cepValid? setHelperCEP(""): setHelperCEP("CEP Inválido")
     },[emailValid, cnpjValid, cepValid])
-    
+
   return (
     <>
       <form onSubmit={handleSubmit}>
