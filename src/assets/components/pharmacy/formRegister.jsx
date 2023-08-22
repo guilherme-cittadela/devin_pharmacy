@@ -104,11 +104,13 @@ function FormRegister() {
             setReset(!reset)
         }
       }, [reset]);
+
     useEffect(() => { 
       emailValid? setHelperEmail(""): setHelperEmail("Email Inválido")
       cnpjValid? setHelperCNPJ(""): setHelperCNPJ("CNPJ Inválido")
       cepValid? setHelperCEP(""): setHelperCEP("CEP Inválido")
     },[emailValid, cnpjValid, cepValid])
+    
   return (
     <>
       <form onSubmit={handleSubmit}>
