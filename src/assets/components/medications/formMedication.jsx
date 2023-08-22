@@ -52,7 +52,7 @@ function FormMedication() {
 
   return (
     
-       <FormControl >
+       <form >
         <TextField
           label="Nome"
           type="text"
@@ -112,11 +112,11 @@ function FormMedication() {
           ))}
           </TextField>
         <Box sx={{display: "flex", justifyContent: "space-around"  }}>
-            <Button onClick={handleSubmit} type="submit" variant="contained">Cadastrar</Button>
+            <Button onSubmit={handleSubmit} type="submit" variant="contained">Cadastrar</Button>
             <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
         </Box>
 
-      </FormControl>
+      </form>
   );
 }
 

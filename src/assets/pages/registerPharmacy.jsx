@@ -6,11 +6,7 @@ function RegisterPharmacy() {
     return ( 
         <>
         <Box
-            component="form"
-            sx={{
-                '& .MuiTextField-root': { m: 1, width: '100%' },
-            }}
-            autoComplete="off"
+
         >
             <FormContainer>
                 <FormRegister/>

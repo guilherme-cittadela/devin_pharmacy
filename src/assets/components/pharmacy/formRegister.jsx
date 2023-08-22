@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, TextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 import {Box} from '@mui/material';
-
+import { FormControl } from '@mui/base';
+import { validateEmail } from '../../global/functions';
 function FormRegister() {
     const initialFormData = {
       companyName: '',
@@ -22,12 +23,26 @@ function FormRegister() {
     };
     
     const [formData, setFormData] = useState(initialFormData);
-    const [disabled, setDisabled] = useState(true);
+    const [cnpjValid, setCnpjValid] = useState(true);
     const [reset, setReset] = useState(false);
+    const [helperTextEmail, setHelperEmail] = useState('');
+    const [helperTextCNPJ, setHelperCNPJ] = useState('');
+    const [helperTextCEP, setHelperCEP] = useState('');
+    const [emailValid, setEmailValid] = useState(true);
+    const [cepValid, setCEPValid] = useState(true);
+
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(formData);
+      console.log(compareByCnpj(formData.cnpj))
+      if (compareByCnpj(formData.cnpj)) {
+        setCnpjValid(false)
+      } else {
+        saveData("pharmacy", formData);
+        handleReset()
+        setCnpjValid(true)
+      }
+    
     };
   
     const handleReset = () => {
@@ -41,31 +56,46 @@ function FormRegister() {
         [name]: value,
       }));
     };
-  
+    
+    const handleEmailChange = (event) => {
+      const { value } = event.target;
+      setFormData((prevData) => ({
+        ...prevData,
+        email: value,
+      }));
+      setEmailValid(validateEmail(value));
+    }
     const handleZipCodeChange = (event) => {
       const { value } = event.target;
+    
       setFormData((prevData) => ({
         ...prevData,
         zipCode: value,
       }));
       fetchAddressByZipCode(value);
     };
-  
+    
     const fetchAddressByZipCode = async (zipCode) => {
-      try {
-        const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json/`);
-        if (response.ok) {
-          const data = await response.json();
-          setFormData((prevData) => ({
-            ...prevData,
-            street: data.logradouro || '',
-            neighborhood: data.bairro || '',
-            city: data.localidade || '',
-            state: data.uf || '',
-          }));
+      const zipCodeRegex = /^\d{5}-\d{3}$/;
+      if (zipCodeRegex.test(zipCode)) {
+        try {
+          const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json/`);
+          if (response.ok) {
+            const data = await response.json();
+            setFormData((prevData) => ({
+              ...prevData,
+              street: data.logradouro || '',
+              neighborhood: data.bairro || '',
+              city: data.localidade || '',
+              state: data.uf || '',
+            }));
+            setCEPValid(true)
+          }
+        } catch (error) {
+          console.error('Error fetching address:', error);
         }
-      } catch (error) {
-        console.error('Error fetching address:', error);
+      } else {
+        setCEPValid(false)
       }
     };
 
@@ -74,6 +104,11 @@ function FormRegister() {
             setReset(!reset)
         }
       }, [reset]);
+    useEffect(() => { 
+      emailValid? setHelperEmail(""): setHelperEmail("Email Inválido")
+      cnpjValid? setHelperCNPJ(""): setHelperCNPJ("CNPJ Inválido")
+      cepValid? setHelperCEP(""): setHelperCEP("CEP Inválido")
+    },[emailValid, cnpjValid, cepValid])
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -99,7 +134,9 @@ function FormRegister() {
               type="text"
               id="cnpj"
               name="cnpj"
+              error={!cnpjValid}
               required
+              helperText={helperTextCNPJ}
             />
           )}
         </InputMask>
@@ -119,7 +156,9 @@ function FormRegister() {
           name="email"
           value={formData.email}
           required
-          onChange={handleInputChange}
+          error={!emailValid}
+          helperText={helperTextEmail}
+          onChange={handleEmailChange}
         />
         <InputMask
           mask="(99) 9999-9999"
@@ -167,6 +206,8 @@ function FormRegister() {
               type="text"
               id="zipCode"
               name="zipCode"
+              error={!cepValid}
+              helperText={helperTextCEP}
               required
             />
           )}
@@ -178,7 +219,7 @@ function FormRegister() {
           readOnly
           value={formData.neighborhood}
           onChange={handleInputChange}
-          disabled = {disabled}
+          label="Bairro"
           />
         <TextField
           type="text"
@@ -187,7 +228,7 @@ function FormRegister() {
           readOnly
           value={formData.city}
           onChange={handleInputChange}
-          disabled = {disabled}
+          label="Cidade"
           />
         <TextField
           type="text"
@@ -195,14 +236,14 @@ function FormRegister() {
           name="state"
           value={formData.state}
           onChange={handleInputChange}
-          disabled = {disabled}
+          label="UF"
           />
         <TextField
           type="text"
           id="street"
           name="street"
           readOnly
-          disabled = {disabled}
+          label="Rua"
           value={formData.street}
           onChange={handleInputChange}
           />
@@ -253,9 +294,38 @@ function FormRegister() {
             <Button type="submit" variant="contained">Cadastrar</Button>
             <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
         </Box>
-      </form>
+      </form >
     </>
   );
 }
+function saveData(key, data) {
+  try {
+    const existingData = localStorage.getItem(key);
+
+    if (existingData) {
+      const dataArray = JSON.parse(existingData);
+      dataArray.push(data);
+      localStorage.setItem(key, JSON.stringify(dataArray));
+    } else {
+      const initialData = [data];
+      localStorage.setItem(key, JSON.stringify(initialData));
+    }
+  } catch (error) {
+    console.error("Error saving data to localStorage:", error);
+  }
+}
+function compareByCnpj(newCnpj) {
+  const existingData = localStorage.getItem("pharmacy");
+  if (existingData) {
+    const parsedExistingData = JSON.parse(existingData);
+    const dataArray = Array.isArray(parsedExistingData)
+    ? parsedExistingData
+    : Object.values(parsedExistingData);
+    const itemsWithSameCnpj = dataArray.filter(item => item.cnpj === newCnpj);
+    return itemsWithSameCnpj.length > 0;
+  }
+
+}
+
 
 export { FormRegister };
