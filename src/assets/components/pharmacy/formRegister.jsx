@@ -258,40 +258,25 @@ function FormRegister() {
           value={formData.number}
           onChange={handleInputChange}
           />
-        <InputMask
-          mask="99999999"
-          maskChar=""
+        <TextField
+          label="Latitude"
+          type="text"
+          id="latidtude"
+          name="latitude"
           value={formData.latitude}
           onChange={handleInputChange}
-          >
-          {(inputProps) => (
-            <TextField
-              {...inputProps}
-              label="Latitude"
-              type="text"
-              id="latitude"
-              name="latitude"
-              required
-            />
-          )}
-        </InputMask>
-        <InputMask
-          mask="999999999"
-          maskChar=""
+          required
+          />
+        <TextField
+          label="Longitude"
+          type="text"
+          id="longitude"
+          name="longitude"
           value={formData.longitude}
           onChange={handleInputChange}
-        >
-          {(inputProps) => (
-            <TextField
-              {...inputProps}
-              label="Longitude"
-              type="text"
-              id="longitude"
-              name="longitude"
-              required
-            />
-          )}
-        </InputMask>
+          required
+          />
+
         <Box sx={{display: "flex", justifyContent: "space-around"  }}>
             <Button type="submit" variant="contained">Cadastrar</Button>
             <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>

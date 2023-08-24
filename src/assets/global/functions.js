@@ -13,20 +13,32 @@ function validateLogin(validEmail, validPassword, email, password) {
   }
 
 function saveData(key, data) {
-try {
-    const existingData = localStorage.getItem(key);
+    try {
+        const existingData = localStorage.getItem(key);
 
-    if (existingData) {
-    const dataArray = JSON.parse(existingData);
-    dataArray.push(data);
-    localStorage.setItem(key, JSON.stringify(dataArray));
-    } else {
-    const initialData = [data];
-    localStorage.setItem(key, JSON.stringify(initialData));
+        if (existingData) {
+        const dataArray = JSON.parse(existingData);
+        dataArray.push(data);
+        localStorage.setItem(key, JSON.stringify(dataArray));
+        } else {
+        const initialData = [data];
+        localStorage.setItem(key, JSON.stringify(initialData));
+        }
+    } catch (error) {
+        console.error("Error saving data to localStorage:", error);
     }
-} catch (error) {
-    console.error("Error saving data to localStorage:", error);
 }
-}
-export { validateEmail, validatePassword, validateLogin, saveData };
+
+function getData(key) {
+    try {
+      const data = localStorage.getItem(key);
+      return data ? JSON.parse(data) : null;
+    } catch (error) {
+      console.error("Error getting data from localStorage:", error);
+      return null;
+    }
+  }
+
+
+export { validateEmail, validatePassword, validateLogin, saveData, getData };
 
