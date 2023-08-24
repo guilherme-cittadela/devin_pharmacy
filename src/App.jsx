@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      <RegisterPharmacy/>
-      <MapPage/>
+      <FormMedication/>
+      <ListMedication/>
     </>
   )
 }

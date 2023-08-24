@@ -1,8 +1,6 @@
-// FormStyles.js
-
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+const CardContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
@@ -10,4 +8,11 @@ export const CardContainer = styled.div`
     margin: auto;
     padding: 10px;
 
-`;
+`
+const FormItens = styled.div`
+    margin: 10px;
+    width: 100%;
+`
+;
+
+export { CardContainer, FormItens}
