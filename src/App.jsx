@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <FormMedication/>
+      <RegisterPharmacy/>
       <ListMedication/>
     </>
   )

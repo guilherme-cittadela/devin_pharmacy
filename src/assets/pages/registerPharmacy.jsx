@@ -6,11 +6,8 @@ function RegisterPharmacy() {
     return ( 
         <>
         <Box
-
         >
-            <FormContainer>
-                <FormRegister/>
-            </FormContainer>
+            <FormRegister/>
         </Box>
 
         </>
