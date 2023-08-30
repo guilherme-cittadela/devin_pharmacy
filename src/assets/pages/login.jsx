@@ -1,9 +1,9 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { FormContainer } from "../global/formStyles";
+import { FormContainer } from "../global/styles/formStyles";
 import { useState } from "react";
-import { validateEmail, validatePassword, validateLogin } from "../global/functions";
-/*import { Redirect } from "react-router-dom";*/
+import { validateEmail, validatePassword, validateLogin } from "../global/functions/functions";
+import { useAuth } from "../context/authContext";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -11,6 +11,7 @@ function Login() {
     const [password, setPassword] = useState("")
     const [passwordValid, setPasswordValid] = useState(true);
     const isLoginValid = validateLogin(emailValid, passwordValid, email, password);
+    const { isAuthenticated, login } = useAuth(); 
     
 
     const handleEmailChange = (event) => {
@@ -42,9 +43,7 @@ function Login() {
 
     ]
     const handleLogin = () => {
-        if (validateLogin(emailValid, passwordValid, email, password))  {
-          return console.log("xd");/*implementar rota*/
-        }
+        login()
       };
     return ( 
         <>  

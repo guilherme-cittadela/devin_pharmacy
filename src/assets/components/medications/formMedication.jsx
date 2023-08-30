@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, MenuItem, Box } from '@mui/material';
-import { saveData } from '../../global/functions';
-import { FormContainer, FormItens } from  '../../global/formStyles';
-import { AlertSuccess } from '../../global/alert';
+import { saveData } from '../../global/functions/functions';
+import { FormContainer, FormItens } from  '../../global/styles/formStyles';
+import { AlertSuccess } from '../alert/alert';
 
 function FormMedication() {
   

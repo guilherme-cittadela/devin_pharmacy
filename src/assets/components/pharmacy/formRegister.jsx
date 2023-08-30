@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 import InputMask from 'react-input-mask';
-import { validateEmail, saveData } from '../../global/functions';
-import { AlertSuccess } from '../../global/alert';
-import { FormContainer } from '../../global/formStyles';
+import { validateEmail, saveData } from '../../global/functions/functions';
+import { AlertSuccess } from '../alert/alert';
+import { FormContainer } from '../../global/styles/formStyles';
 import { FormItens } from '../medications/cardContainer';
 
 function FormRegister() {
@@ -254,10 +254,6 @@ function FormRegister() {
         type: "number",
         id: "number",
         name: "number",
-        InputMaskProps: {
-          mask: "999999999",
-          maskChar: "",
-        },
         onChange: handleInputChange,
       },
       {

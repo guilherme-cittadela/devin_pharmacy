@@ -5,6 +5,9 @@ import MapCard from './mapCard';
 
 
 function MapView({data}) {
+  if (data === null) {
+    return <p>Não há dados disponíveis.</p>;
+  }
     return ( 
         <>
         <MapContainer style={{width: "100%", height:"100vh"}}  center={[-27.693814998118743,-48.50166763843848]} zoom={13} scrollWheelZoom={false}>

@@ -1,6 +1,6 @@
 import { Box, Modal, Button, Typography, Chip, CardMedia, CardContent, CardActions, Card } from '@mui/material';
 import { useState } from 'react';
-import { PlusIcon } from '../../global/icons';
+import { PlusIcon } from './icons';
 import ImgMedication from "../../global/images/medication.png"
 
 function CardMedication({id, name, description, laboratory, dosage, price, type}) {

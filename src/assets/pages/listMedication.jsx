@@ -7,7 +7,8 @@ import React, { useEffect, useState } from 'react';
 import { CardContainer } from "../components/medications/cardContainer";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import { getData } from "../global/functions";
+import { getData } from "../global/functions/functions";
+import { Header } from "../components/header/header";
 
 
 function ListMedication() {
@@ -24,6 +25,7 @@ function ListMedication() {
     return ( 
         
         <>
+        <Header/>
         <Paper
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
         >
