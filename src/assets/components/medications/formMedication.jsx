@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, MenuItem, Box } from '@mui/material';
 import { saveData } from '../../global/functions/functions';
-import { FormContainer, FormItens } from  '../../global/styles/formStyles';
+import { FormContainer } from  './formStyles';
 import { AlertSuccess } from '../alert/alert';
 
 function FormMedication() {
@@ -116,9 +116,9 @@ function FormMedication() {
     <>
     <form onSubmit={handleSubmit}>
       <FormContainer>
+        <h1>Cadastro de medicamentos</h1>
         {fieldInfo.map(({name, label, type, stateKey, required, multiline, rows}) =>{
             return(
-              <FormItens>
                 <TextField
                   key={name}
                   label={label}
@@ -130,10 +130,8 @@ function FormMedication() {
                   rows={rows}
                   onChange={(event) => handleInputChange(event)}
                 />
-              </FormItens>
             )
         })}
-        <FormItens>
           <TextField
             id="outlined-select"
             select
@@ -155,16 +153,11 @@ function FormMedication() {
               </MenuItem>
             ))}
           </TextField>
-        </FormItens>
-        <Box sx={{display: "flex", justifyContent: "space-around"  }}>
-              <FormItens>
-                  <Button  type="submit" variant="contained">Cadastrar</Button>
-              </FormItens>
-              <FormItens>
-                <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
-              </FormItens>
-        </Box>
         <AlertSuccess closeModal={closeModal} success={success} title={"Sucesso"} description={"Medicamento cadastrado"}/>
+        <Box sx={{display: "flex", justifyContent: "space-evenly" }}>
+            <Button  type="submit" variant="contained">Cadastrar</Button>
+            <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
+        </Box>
       </FormContainer>
     </form>
     </>

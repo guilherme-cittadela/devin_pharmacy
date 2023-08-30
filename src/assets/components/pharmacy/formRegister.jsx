@@ -3,7 +3,7 @@ import { Button, TextField, Box } from '@mui/material';
 import InputMask from 'react-input-mask';
 import { validateEmail, saveData } from '../../global/functions/functions';
 import { AlertSuccess } from '../alert/alert';
-import { FormContainer } from '../../global/styles/formStyles';
+import { FormContainer } from './formStyles';
 import { FormItens } from '../medications/cardContainer';
 
 function FormRegister() {
@@ -277,11 +277,11 @@ function FormRegister() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <h1>Cadastro de Farmácias</h1>
         <FormContainer>
         {textFieldData.map((field) => (
         <div key={field.id}>
           {field.InputMaskProps ? (
-            <FormItens>
               <InputMask {...field.InputMaskProps} value={formData[field.stateKey]} onChange={field.onChange}>
                 {(inputProps) => (
                   <TextField
@@ -299,9 +299,7 @@ function FormRegister() {
                   />
                   )}
               </InputMask>
-            </FormItens>
           ) : (
-            <FormItens>
               <TextField
                 sx={{width: "100%"}}
                 label={field.label}
@@ -315,20 +313,15 @@ function FormRegister() {
                 readOnly={field.readOnly}
                 required
                 />
-              </FormItens>
           )}
         </div>
       ))}
 
-      <Box sx={{display: "flex", justifyContent: "space-around"  }}>
-        <FormItens>
-          <Button type="submit" variant="contained">Cadastrar</Button>
-        </FormItens>
-        <FormItens>
-          <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
-        </FormItens>
-      </Box>
         <AlertSuccess closeModal={closeModal} success={success} title={"Sucesso"} description={"Farmácia cadastrada"}/>
+        <Box sx={{display: "flex", justifyContent: "space-evenly", m:1}}>
+            <Button type="submit" variant="contained">Cadastrar</Button>
+            <Button onClick={handleReset} variant="contained" color="error">Limpar</Button>
+        </Box>
       </FormContainer>
       </form >
     </>

@@ -1,23 +1,35 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapCard from './mapCard';
+import { MapStyle } from './mapStyle';
+import { AlertNoData } from '../alert/alertNoData';
 
 
 
 function MapView({data}) {
   if (data === null) {
-    return <p>Não há dados disponíveis.</p>;
+    return(
+      <MapStyle>
+
+      <AlertNoData
+        page="Cadastro de farmácias"
+        link="/regpharm"
+        />
+      </MapStyle>
+    )
   }
     return ( 
         <>
-        <MapContainer style={{width: "100%", height:"100vh"}}  center={[-27.693814998118743,-48.50166763843848]} zoom={13} scrollWheelZoom={false}>
+        <MapStyle>
+
+        <h1>Farmácias cadastradas</h1>
+        <MapContainer style={{width: "100%", height:"100vh"}}  center={[-27.693814998118743,-48.50166763843848]} zoom={10} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+                />
 
             {data.map(({tradeName, email, street, number, neighborhood, city, state, phone, latitude, longitude}, idx) => {
-              console.log(idx)
               return(
                 <>
                   <Marker  position={[latitude, longitude]}>
@@ -39,6 +51,7 @@ function MapView({data}) {
               )
             })}
         </MapContainer>
+        </MapStyle>
         </>
      );
 }

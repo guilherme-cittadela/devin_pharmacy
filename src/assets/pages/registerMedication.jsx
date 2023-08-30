@@ -1,15 +1,13 @@
-import { FormContainer } from '../global/styles/formStyles.js'; 
 import { FormMedication } from "../components/medications/formMedication.jsx";
 import { Header } from '../components/header/header.jsx';
+import { Footer } from '../components/footer/footer.jsx';
 
 function RegisterMedication() {
     return ( 
         <>  
             <Header/>
-            <FormContainer>
-                <FormMedication/>
-            </FormContainer>
-
+            <FormMedication/>
+            <Footer/>
         </>
      );
 }

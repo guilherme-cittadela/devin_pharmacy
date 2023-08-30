@@ -1,9 +1,12 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { FormContainer } from "../global/styles/formStyles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { validateEmail, validatePassword, validateLogin } from "../global/functions/functions";
 import { useAuth } from "../context/authContext";
+import { Header } from "../components/header/header";
+import { Footer } from "../components/footer/footer";
+import { Alert } from "@mui/material";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -11,7 +14,9 @@ function Login() {
     const [password, setPassword] = useState("")
     const [passwordValid, setPasswordValid] = useState(true);
     const isLoginValid = validateLogin(emailValid, passwordValid, email, password);
-    const { isAuthenticated, login } = useAuth(); 
+    const [helperTextEmail, setHelperTextEmail] = useState("")
+    const [helperTextPassword, setHelperTextPassword] = useState("")
+    const { login } = useAuth(); 
     
 
     const handleEmailChange = (event) => {
@@ -29,7 +34,7 @@ function Login() {
         value: email,
         onChange: handleEmailChange,
         error: emailValid,
-        helperText:  "Email inválido",
+        helperText: helperTextEmail,
         type:"text"
         },
 
@@ -37,7 +42,7 @@ function Login() {
         value: password,
         onChange: handlePasswordChange,
         error: passwordValid,
-        helperText:  "Senha inválida!",
+        helperText: helperTextPassword,
         type: "password"
         },
 
@@ -45,32 +50,40 @@ function Login() {
     const handleLogin = () => {
         login()
       };
+
+    useEffect(()=>{
+        emailValid? setHelperTextEmail(""): setHelperTextEmail("Email inválido")
+    }, [emailValid])
     return ( 
         <>  
+            <Header/>
             <FormContainer>
-               {formInput.map(({value, label, onChange, error, helper, type, idx})=>{
-                return(
-                    <div key={idx}>
+                <h1>Bem vindo a <strong>DevIn Pharmacy</strong></h1>
+                <h3>Faça o login:</h3>
+                {formInput.map(({value, label, onChange, error, helperText, type, idx})=>{
+                    return(
+                        <div key={idx}>
+                            <TextField
+                            label={label}
+                            sx={{m:1}}
+                            value={value}
+                            onChange={onChange}
+                            error={!error}
+                            helperText={helperText}
+                            type={type}
+                            />
+                        </div>
+                    )
+                })}
+                {!passwordValid && <Alert severity="error">Sua senha deve possuir tamanho de 8 caracteres e pelo menos um número, uma letra maíuscula e um caractere especial</Alert>}
 
-                        <TextField
-                        label={label}
-                        sx={{m:1}}
-                        value={value}
-                        onChange={onChange}
-                        error={!error}
-                        helperText={helper}
-                        type={type}
-                        />
-                    </div>
-                )
-               })}
-
-
+            </FormContainer>
+            <FormContainer>
                 <Button variant="contained" onClick={handleLogin} disabled={!isLoginValid}>Entrar</Button>
                 <Button variant="text">Cadastrar</Button>
                 <Button variant="text">Esqueceu sua senha?</Button>
             </FormContainer>
-    
+            <Footer/>
         </>
      );
 }

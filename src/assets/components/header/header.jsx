@@ -10,14 +10,14 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from "../../global/images/logo.png"
 
 const pages = [
   { to: "/", label: "Farmácias" },
+  { to: "/regpharm", label: "Cadastro Farmácias" },
   { to: "/medications", label: "Medicamentos" },
   { to: "/regmed", label: "Cadastro medicamentos" },
-  { to: "/regpharm", label: "Cadastro Farmácias" },
 ];
-
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -25,10 +25,9 @@ function Header() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
-
+  
+  
   const handleCloseNavMenu = () => {
-    console.log("oi")
     setAnchorElNav(null);
   };
 
@@ -51,7 +50,7 @@ function Header() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img src={Logo} alt='Logomarca' />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -84,10 +83,9 @@ function Header() {
               }}
             >
               {pages.map(({label, to}, idx) => {
-                console.log(label,to)
                 return(
                 <MenuItem key={idx} onClick={handleCloseNavMenu}>
-                  <Link to={to}>{label}</Link>
+                  <Link style={{textDecoration: "none", color: "#757575" }} to={to}>{label}</Link>
                 </MenuItem>
               )})}
             </Menu>
@@ -108,19 +106,27 @@ function Header() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <img src={Logo} alt='Logomarca' />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', textDecoration: "none" } }}>
             {pages.map(({label, to}, idx) => (
               <Button
                 key={idx}
+                variant="contained"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', m: 1}}
               >
                 <Link style={{textDecoration: "none", color: "white"}} to={to}>{label}</Link>
               </Button>
             ))}
           </Box>
+          <Button
+                  
+                  variant="contained"
+                  sx={{ my: 2, color: 'white', display: 'block', m: 1}}
+                >
+                  Logout
+          </Button>
 
           
         </Toolbar>

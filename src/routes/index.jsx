@@ -2,7 +2,7 @@ import { PublicRoutes } from "./publicRoutes"
 import { PrivateRoutes } from "./privateRoutes"
 import { useAuth } from "../assets/context/authContext";
 function RoutesApp() {
-  const { isAuthenticated, login } = useAuth();
+  const { isAuthenticated } = useAuth();
   const token = localStorage.getItem("token");
 
 
