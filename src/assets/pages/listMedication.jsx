@@ -10,7 +10,6 @@ import AlertTitle from '@mui/material/AlertTitle';
 import { getData } from "../global/functions/functions";
 import { Header } from "../components/header/header";
 import { AlertNoData } from "../components/alert/alertNoData";
-import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/footer";
 
 

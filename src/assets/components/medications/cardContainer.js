@@ -9,10 +9,5 @@ const CardContainer = styled.div`
   padding: 10px;
 
 `
-const FormItens = styled.div`
-    margin: 10px;
-    width: 100%;
-`
-;
 
-export { CardContainer, FormItens}
+export { CardContainer}

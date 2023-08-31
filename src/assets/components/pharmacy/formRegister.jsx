@@ -4,7 +4,6 @@ import InputMask from 'react-input-mask';
 import { validateEmail, saveData } from '../../global/functions/functions';
 import { AlertSuccess } from '../alert/alert';
 import { FormContainer } from './formStyles';
-import { FormItens } from '../medications/cardContainer';
 
 function FormRegister() {
     const initialFormData = {
