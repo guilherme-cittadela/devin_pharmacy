@@ -42,7 +42,7 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 1. Clone o repositório para o seu ambiente local:
 
    ```sh
-   git clone https://github.com/seu-usuario/devin_pharmacy.git
+   git clone https://github.com/guilherme-cittadela/devin_pharmacy.git
    ```
 
 2. Acesse a pasta do projeto:
