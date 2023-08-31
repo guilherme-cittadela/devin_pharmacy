@@ -19,8 +19,6 @@ Com essa aplicação, os usuários podem:
     * Buscar medicamentos por nome.
     * Acessar informações sobre farmácias e medicamentos de forma rápida e fácil.
 
-A aplicação oferece uma solução eficiente para a gestão de dados sobre medicamentos e farmácias, facilitando a comunicação entre usuários e estabelecimentos de saúde, além de proporcionar uma experiência mais conveniente para encontrar informações sobre produtos farmacêuticos.
-
 ## Tecnologias Utilizadas
 
     React: Biblioteca JavaScript para construção de interfaces de usuário.
@@ -72,8 +70,6 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 - Node.js 
 - npm ou yarn
 - Navegador web moderno
-
-Certifique-se de ter as versões corretas do Node.js e das ferramentas de gerenciamento de pacotes instaladas em sua máquina antes de executar a aplicação.
 
 ## Requisitos da aplicação
 
