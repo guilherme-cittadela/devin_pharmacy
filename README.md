@@ -12,23 +12,23 @@ A aplicação desenvolvida visa solucionar o desafio de gerenciar informações 
 
 Com essa aplicação, os usuários podem:
 
-    * Cadastrar informações sobre medicamentos, incluindo nome, descrição, laboratório, dosagem, preço e tipo.
-    * Cadastrar informações sobre farmácias, incluindo nome fantasia, razão social, endereço, telefone e coordenadas geográficas.
-    * Visualizar a lista de medicamentos disponíveis e detalhes sobre cada um deles.
-    * Visualizar a lista de farmácias cadastradas e detalhes sobre cada uma delas.
-    * Buscar medicamentos por nome.
-    * Acessar informações sobre farmácias e medicamentos de forma rápida e fácil.
+ * Cadastrar informações sobre medicamentos, incluindo nome, descrição, laboratório, dosagem, preço e tipo.
+ * Cadastrar informações sobre farmácias, incluindo nome fantasia, razão social, endereço, telefone e coordenadas geográficas.
+ * Visualizar a lista de medicamentos disponíveis e detalhes sobre cada um deles.
+ * Visualizar a lista de farmácias cadastradas e detalhes sobre cada uma delas.
+ * Buscar medicamentos por nome.
+ * Acessar informações sobre farmácias e medicamentos de forma rápida e fácil.
 
 ## Tecnologias Utilizadas
 
-    React: Biblioteca JavaScript para construção de interfaces de usuário.
-    React Router: Biblioteca para gerenciamento de rotas na aplicação.
-    Styled Components: Biblioteca para estilização de componentes utilizando CSS-in-JS.
-    Material-UI: Framework de UI que fornece componentes estilizados e prontos para uso.
-    Context API: API do React para gerenciamento de estado global na aplicação.
-    Leaflet: Biblioteca para renderização de mapas interativos.
-    React Icons: Biblioteca para adicionar ícones populares à aplicação.
-    Git e GitHub: Para controle de versão e hospedagem do código.
+* React: Biblioteca JavaScript para construção de interfaces de usuário.
+* React Router: Biblioteca para gerenciamento de rotas na aplicação.
+* Styled Components: Biblioteca para estilização de componentes utilizando CSS-in-JS.
+* Material-UI: Framework de UI que fornece componentes estilizados e prontos para uso.
+* Context API: API do React para gerenciamento de estado global na aplicação.
+* Leaflet: Biblioteca para renderização de mapas interativos.
+* React Icons: Biblioteca para adicionar ícones populares à aplicação.
+* Git e GitHub: Para controle de versão e hospedagem do código.
 
 ## Apresentando a aplicação
 
@@ -76,9 +76,9 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 O sistema possui os seguintes requisitos e funcionalidades:
 ### Página de Login
 
-    * Campo de e-mail e senha.
-    * Validação dos campos de entrada.
-    * Redirecionamento para a página de Mapa após o login bem-sucedido.
+ * Campo de e-mail e senha.
+ * Validação dos campos de entrada.
+ * Redirecionamento para a página de Mapa após o login bem-sucedido.
 
 ### Página de Cadastro de Farmácia
    * Campos obrigatórios: Razão social, CNPJ, Nome Fantasia, E-mail, Celular, CEP, Logradouro/Endereço, Número, Bairro, Cidade, Estado, Latitude, Longitude.
