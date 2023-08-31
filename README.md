@@ -60,7 +60,7 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 4. Inicie a aplicação:
 
    ```sh
-   npm start
+   npm run dev
    ```
 
    Acesse a aplicação em seu navegador em http://localhost:####.
