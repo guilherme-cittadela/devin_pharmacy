@@ -32,12 +32,17 @@ Com essa aplicação, os usuários podem:
 
 ## Apresentando a aplicação
 
-    [Vídeo de apresentação](google.com)
+[Vídeo de apresentação](https://drive.google.com/file/d/1fLUcSNDvWyChJScuQL-0CFeSrvrX7bxj/view?usp=sharing)
     
 ## Instalação
+### Requisitos Técnicos
 
+- Node.js 
+- npm ou yarn
+- VsCode
+- Navegador web moderno
 
-Siga as etapas abaixo para configurar e executar a aplicação em sua máquina local:
+### Siga as etapas abaixo para configurar e executar a aplicação em sua máquina local:
 
 1. Clone o repositório para o seu ambiente local:
 
@@ -64,13 +69,6 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
    ```
 
    Acesse a aplicação em seu navegador em http://localhost:####.
-
-## Requisitos Técnicos
-
-- Node.js 
-- npm ou yarn
-- VsCode
-- Navegador web moderno
 
 ## Requisitos da aplicação
 
