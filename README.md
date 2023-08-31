@@ -69,6 +69,7 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 
 - Node.js 
 - npm ou yarn
+- VsCode
 - Navegador web moderno
 
 ## Requisitos da aplicação
