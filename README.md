@@ -12,25 +12,23 @@ A aplicação desenvolvida visa solucionar o desafio de gerenciar informações 
 
 Com essa aplicação, os usuários podem:
 
-    * Cadastrar informações sobre medicamentos, incluindo nome, descrição, laboratório, dosagem, preço e tipo.
-    * Cadastrar informações sobre farmácias, incluindo nome fantasia, razão social, endereço, telefone e coordenadas geográficas.
-    * Visualizar a lista de medicamentos disponíveis e detalhes sobre cada um deles.
-    * Visualizar a lista de farmácias cadastradas e detalhes sobre cada uma delas.
-    * Buscar medicamentos por nome.
-    * Acessar informações sobre farmácias e medicamentos de forma rápida e fácil.
-
-A aplicação oferece uma solução eficiente para a gestão de dados sobre medicamentos e farmácias, facilitando a comunicação entre usuários e estabelecimentos de saúde, além de proporcionar uma experiência mais conveniente para encontrar informações sobre produtos farmacêuticos.
+ * Cadastrar informações sobre medicamentos, incluindo nome, descrição, laboratório, dosagem, preço e tipo.
+ * Cadastrar informações sobre farmácias, incluindo nome fantasia, razão social, endereço, telefone e coordenadas geográficas.
+ * Visualizar a lista de medicamentos disponíveis e detalhes sobre cada um deles.
+ * Visualizar a lista de farmácias cadastradas e detalhes sobre cada uma delas.
+ * Buscar medicamentos por nome.
+ * Acessar informações sobre farmácias e medicamentos de forma rápida e fácil.
 
 ## Tecnologias Utilizadas
 
-    React: Biblioteca JavaScript para construção de interfaces de usuário.
-    React Router: Biblioteca para gerenciamento de rotas na aplicação.
-    Styled Components: Biblioteca para estilização de componentes utilizando CSS-in-JS.
-    Material-UI: Framework de UI que fornece componentes estilizados e prontos para uso.
-    Context API: API do React para gerenciamento de estado global na aplicação.
-    Leaflet: Biblioteca para renderização de mapas interativos.
-    React Icons: Biblioteca para adicionar ícones populares à aplicação.
-    Git e GitHub: Para controle de versão e hospedagem do código.
+* React: Biblioteca JavaScript para construção de interfaces de usuário.
+* React Router: Biblioteca para gerenciamento de rotas na aplicação.
+* Styled Components: Biblioteca para estilização de componentes utilizando CSS-in-JS.
+* Material-UI: Framework de UI que fornece componentes estilizados e prontos para uso.
+* Context API: API do React para gerenciamento de estado global na aplicação.
+* Leaflet: Biblioteca para renderização de mapas interativos.
+* React Icons: Biblioteca para adicionar ícones populares à aplicação.
+* Git e GitHub: Para controle de versão e hospedagem do código.
 
 ## Apresentando a aplicação
 
@@ -73,23 +71,20 @@ Siga as etapas abaixo para configurar e executar a aplicação em sua máquina l
 - npm ou yarn
 - Navegador web moderno
 
-Certifique-se de ter as versões corretas do Node.js e das ferramentas de gerenciamento de pacotes instaladas em sua máquina antes de executar a aplicação.
-
 ## Requisitos da aplicação
 
 O sistema possui os seguintes requisitos e funcionalidades:
 ### Página de Login
 
-    * Campo de e-mail e senha.
-    * Validação dos campos de entrada.
-    * Redirecionamento para a página de Mapa após o login bem-sucedido.
+ * Campo de e-mail e senha.
+ * Validação dos campos de entrada.
+ * Redirecionamento para a página de Mapa após o login bem-sucedido.
 
 ### Página de Cadastro de Farmácia
-
-    * Campos obrigatórios: Razão social, CNPJ, Nome Fantasia, E-mail, Celular, CEP, Logradouro/Endereço, Número, Bairro, Cidade, Estado, Latitude, Longitude.
-    * Consulta de endereço automática através do CEP via API ViaCEP.
-    * Validação dos campos obrigatórios.
-    * Feedback de cadastro bem-sucedido.
+   * Campos obrigatórios: Razão social, CNPJ, Nome Fantasia, E-mail, Celular, CEP, Logradouro/Endereço, Número, Bairro, Cidade, Estado, Latitude, Longitude.
+   * Consulta de endereço automática através do CEP via API ViaCEP.
+   * Validação dos campos obrigatórios.
+   * Feedback de cadastro bem-sucedido.
 
 ### Página de Cadastro de Medicamentos
 
@@ -99,46 +94,45 @@ O sistema possui os seguintes requisitos e funcionalidades:
 
 ### Página de Mapa
 
-    * Renderização de mapa interativo com marcadores de farmácias cadastradas.
-    * Exibição de informações da farmácia ao clicar no marcador.
-    * Utilização da React Leaflet para exibição dos mapas.
+   * Renderização de mapa interativo com marcadores de farmácias cadastradas.
+   * Exibição de informações da farmácia ao clicar no marcador.
+   * Utilização da React Leaflet para exibição dos mapas.
 
 ### Página de Listagem de Medicamentos
-
-    * Exibição de medicamentos em formato de card.
-    * Barra de busca para buscar medicamentos.
-    * Opção de filtro por preço e tipo.
+   * Exibição de medicamentos em formato de card.
+   * Barra de busca para buscar medicamentos.
+   * Opção de filtro por preço e tipo.
 
 ### Página de Detalhes de Medicamentos
 
-    * Exibição detalhada das informações do medicamento.
+   * Exibição detalhada das informações do medicamento.
 
 ### Menu de Navegação
 
-    * Navegação entre as páginas da aplicação.
+ * Navegação entre as páginas da aplicação.
 
 ### Estilização
 
-   * Criação de identidade visual única e intuitiva.
-   * Utilização de cores, formatos e estilos personalizados.
-   * Foco na usabilidade e responsividade.
+* Criação de identidade visual única e intuitiva.
+* Utilização de cores, formatos e estilos personalizados.
+* Foco na usabilidade e responsividade.
 
 ## Melhorias Futuras
 
-    * Autenticação de Usuário: Adicionar um sistema de autenticação de usuário para garantir que apenas usuários autenticados possam acessar as funcionalidades de cadastro e edição de medicamentos e farmácias. Isso aumentará a segurança e a privacidade dos dados.
+ * Autenticação de Usuário: Adicionar um sistema de autenticação de usuário para garantir que apenas usuários autenticados possam acessar as funcionalidades de cadastro e edição de medicamentos e farmácias. Isso aumentará a segurança e a privacidade dos dados.
 
-    * Edição e Exclusão de Dados: Implementar a capacidade de editar e excluir informações sobre medicamentos e farmácias já cadastrados. Isso permitirá que os usuários corrijam erros ou atualizem informações conforme necessário.
+ * Edição e Exclusão de Dados: Implementar a capacidade de editar e excluir informações sobre medicamentos e farmácias já cadastrados. Isso permitirá que os usuários corrijam erros ou atualizem informações conforme necessário.
 
-    * Imagens de Medicamentos e Farmácias: Adicionar a funcionalidade de upload de imagens para medicamentos e farmácias, permitindo que os usuários associem imagens aos produtos e estabelecimentos.
+ * Imagens de Medicamentos e Farmácias: Adicionar a funcionalidade de upload de imagens para medicamentos e farmácias, permitindo que os usuários associem imagens aos produtos e estabelecimentos.
     
-    * Avaliações e Comentários: Incorporar um sistema de avaliações e comentários, onde os usuários possam compartilhar suas experiências com medicamentos e farmácias. Isso ajudará outros usuários a tomar decisões informadas.
+ * Avaliações e Comentários: Incorporar um sistema de avaliações e comentários, onde os usuários possam compartilhar suas experiências com medicamentos e farmácias. Isso ajudará outros usuários a tomar decisões informadas.
 
-    * Filtros Avançados: Implementar filtros de pesquisa avançados para medicamentos, como filtrar por tipo, preço ou laboratório. Isso facilitará a busca por medicamentos específicos.
+ * Filtros Avançados: Implementar filtros de pesquisa avançados para medicamentos, como filtrar por tipo, preço ou laboratório. Isso facilitará a busca por medicamentos específicos.
 
-    * Notificações: Adicionar a capacidade de enviar notificações aos usuários, informando sobre promoções de medicamentos, novos produtos ou atualizações nas farmácias cadastradas.
+ * Notificações: Adicionar a capacidade de enviar notificações aos usuários, informando sobre promoções de medicamentos, novos produtos ou atualizações nas farmácias cadastradas.
 
-    * Controle de Acesso Avançado: Implementar diferentes níveis de acesso para usuários, como administradores e usuários comuns, cada um com permissões específicas para gerenciar dados.
+ * Controle de Acesso Avançado: Implementar diferentes níveis de acesso para usuários, como administradores e usuários comuns, cada um com permissões específicas para gerenciar dados.
 
-    * Testes Automatizados: Desenvolver testes automatizados para garantir a robustez e a estabilidade da aplicação, reduzindo possíveis erros e falhas.
+ * Testes Automatizados: Desenvolver testes automatizados para garantir a robustez e a estabilidade da aplicação, reduzindo possíveis erros e falhas.
 
 ```
